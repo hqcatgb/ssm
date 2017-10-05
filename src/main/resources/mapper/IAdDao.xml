@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hqc.ten.dao.IAdDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.hqc.ten.domain.Ad">
+        <result column="position_id" property="position_id"/>
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="order" property="order"/>
+        <result column="src" property="src"/>
+        <result column="url" property="url"/>
+        <result column="is_use" property="is_use"/>
+        <result column="expire" property="expire"/>
+        <result column="updated_at" property="updated_at"/>
+        <result column="created_at" property="created_at"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        position_id,
+        id,
+        `name`,
+        `order`,
+        src,
+        url,
+        is_use,
+        expire,
+        updated_at,
+        created_at
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO ad
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.position_id != null"> position_id, </if>
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.name != null"> `name`, </if>
+            <if test="pojo.order != null"> `order`, </if>
+            <if test="pojo.src != null"> src, </if>
+            <if test="pojo.url != null"> url, </if>
+            <if test="pojo.is_use != null"> is_use, </if>
+            <if test="pojo.expire != null"> expire, </if>
+            <if test="pojo.updated_at != null"> updated_at, </if>
+            <if test="pojo.created_at != null"> created_at, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.position_id != null"> #{pojo.position_id}, </if>
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.name != null"> #{pojo.name}, </if>
+            <if test="pojo.order != null"> #{pojo.order}, </if>
+            <if test="pojo.src != null"> #{pojo.src}, </if>
+            <if test="pojo.url != null"> #{pojo.url}, </if>
+            <if test="pojo.is_use != null"> #{pojo.is_use}, </if>
+            <if test="pojo.expire != null"> #{pojo.expire}, </if>
+            <if test="pojo.updated_at != null"> #{pojo.updated_at}, </if>
+            <if test="pojo.created_at != null"> #{pojo.created_at}, </if>
+        </trim>
+    </insert>
+
+
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE ad
+        <set>
+            <if test="pojo.position_id != null"> position_id = #{pojo.position_id}, </if>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.order != null"> order = #{pojo.order}, </if>
+            <if test="pojo.src != null"> src = #{pojo.src}, </if>
+            <if test="pojo.url != null"> url = #{pojo.url}, </if>
+            <if test="pojo.is_use != null"> is_use = #{pojo.is_use}, </if>
+            <if test="pojo.expire != null"> expire = #{pojo.expire}, </if>
+            <if test="pojo.updated_at != null"> updated_at = #{pojo.updated_at}, </if>
+            <if test="pojo.created_at != null"> created_at = #{pojo.created_at} </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="all" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM `ad` order by id desc
+    </select>
+
+</mapper>
